@@ -1,0 +1,16 @@
+[
+	{
+		"templateName": "Test Template 1 ${CURRENT_DATE_TIME}",
+		"shortDescription": "This is a bla bla short description",
+		"course": "Coachtid",
+		"teacherInstructions": "This is bla bla bla teacher instruction",
+		"studentInstructions": "This is bla bla bla student instruction"
+	},
+	{
+		"templateName": "Test Template 2 ${CURRENT_DATE_TIME}",
+		"shortDescription": "This is a bla bla short description",
+		"course": "Coachtid",
+		"teacherInstructions": "This is bla bla bla teacher instruction",
+		"studentInstructions": "This is bla bla bla student instruction"
+	}
+]

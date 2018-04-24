@@ -1,0 +1,8 @@
+<suite name="Jensen QA" verbose="10">
+	<test name="All Chrome Tests" preserve-order="true">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="se.jensen.qa.lessons.LessonTemplatesTest" />
+		</classes>
+	</test>
+</suite>
