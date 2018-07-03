@@ -67,10 +67,10 @@ public class LessonsPageActions extends BaseActions {
 //			arrow.click();
 //		}
 //	}
-	public void deleteTemplate(String templateName) throws InterruptedException {
+	/*public void deleteTemplate(String templateName) throws InterruptedException {
 		jensenDriver.deleteRowInJensenTable("Namn", templateName);
 		System.out.println("deleted template " + templateName);
-	}
+	}*/
 	
 	public void openTemplate(String templateName) throws InterruptedException {
 		jensenDriver.clickRowInJensenTable("Namn", templateName);

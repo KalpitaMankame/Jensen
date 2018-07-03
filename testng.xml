@@ -2,7 +2,8 @@
 	<test name="All Chrome Tests" preserve-order="true">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="se.jensen.qa.lessons.LessonTemplatesTest" />
+			<!-- <class name="se.jensen.qa.lessons.LessonTemplatesTest" />  -->
+			<class name="se.jensen.qa.assignment.AssignmentTemplatesTest" /> 
 		</classes>
 	</test>
 </suite>

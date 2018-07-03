@@ -1,0 +1,17 @@
+[
+	{
+		"templateName": "AA Template 1 ${CURRENT_DATE_TIME}",
+		"typeDropdown": "Laboration",
+		"shortDescription": "This is a Short desscription for assignment",
+		"course": "Coachtid",
+		"teacherInstructions": "This is an instruction for Teacher Instruction",
+		"studentInstructions": "This is an instruction for Student Instruction",
+		"assessmentAspect": "This is an instruction for Assessment Aspect",
+		"distributeCoursegroupdropdown": "Test Coach group",
+		"flexAssignmentStartPercent":0,
+		"flexAssignmentEndPercent":100
+		
+		
+	}
+	
+]

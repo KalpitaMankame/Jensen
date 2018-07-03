@@ -1,5 +1,6 @@
 package se.jensen.qa.ui.actions;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +28,7 @@ public class HomePageActions extends BaseActions {
 	public HomePageActions(JensenDriver jensenDriver) {
 		super(jensenDriver);
 	}
+	
 	public void changeTab(String tab) {
     	Actions action = new Actions(jensenDriver.getDriver());
     	jensenDriver.waitAndFindElementByCssSelector("a[href='" + TABS.get(tab) +"']").click();

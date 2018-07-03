@@ -1,0 +1,2 @@
+webdriver.chrome.driver=/Users/kalps/Selenium/chromedriver
+webdriver.gecko.driver=/Users/kalps/Selenium/SeleniumGecko/geckodriver

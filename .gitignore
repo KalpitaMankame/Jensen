@@ -1,2 +1,4 @@
 target
 test-output
+driver.properties
+/.DS_Store

@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import se.jensen.qa.helpers.JensenDriver;
+import se.jensen.qa.ui.actions.AssignmentPageActions;
 import se.jensen.qa.ui.actions.HomePageActions;
 import se.jensen.qa.ui.actions.LessonsPageActions;
 import se.jensen.qa.ui.actions.LoginPageActions;
@@ -26,6 +27,7 @@ public abstract class SeleniumAbstractTest {
 	protected LoginPageActions loginPageActions;
 	protected HomePageActions homePageActions;
 	protected LessonsPageActions lessonsPageActions;
+	protected AssignmentPageActions assignmentPageActions;
 
 	@BeforeSuite()
 	public void initSelenium() {
@@ -33,12 +35,12 @@ public abstract class SeleniumAbstractTest {
 		System.setProperty("webdriver.gecko.driver", driverProperties.getString("webdriver.gecko.driver"));
 	}
 
-	@AfterTest(alwaysRun = true)
-	public void tearDown() throws InterruptedException {
-		System.out.println("Quitting the browser");
-		Thread.sleep(5000);
-		jensenDriver.quit();
-	}
+//	@AfterTest(alwaysRun = true)
+//	public void tearDown() throws InterruptedException {
+//		System.out.println("Quitting the browser");
+//		Thread.sleep(5000);
+//		jensenDriver.quit();
+//	}
 
 	private void initDefaultPageActions() {
 		try {
@@ -71,7 +73,7 @@ public abstract class SeleniumAbstractTest {
 		initDefaultPageActions();
 	}
 
-	@AfterMethod
+	//@AfterMethod
 	public void logout() throws InterruptedException {
 		homePageActions.logout();
 	}

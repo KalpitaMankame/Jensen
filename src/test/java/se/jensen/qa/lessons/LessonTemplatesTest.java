@@ -17,7 +17,7 @@ public class LessonTemplatesTest extends SeleniumAbstractTest {
 		lessonsPageActions = new LessonsPageActions(jensenDriver);
 	}
 
-	@Test
+	//@Test
 	public void createTemplateTest() {
 		try {
 			List<LessonTemplateData> inputDataList = JsonParser
@@ -35,7 +35,7 @@ public class LessonTemplatesTest extends SeleniumAbstractTest {
 				LessonTemplateData savedTemplateData = lessonsPageActions.parseTemplateDataFromCreatePage();
 				lessonsPageActions.assertTemplateData(savedTemplateData, iData);
 				jensenDriver.goBack();
-				lessonsPageActions.deleteTemplate(iData.getTemplateName());
+				//lessonsPageActions.deleteTemplate(iData.getTemplateName());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,11 +43,12 @@ public class LessonTemplatesTest extends SeleniumAbstractTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void createTemplate_DuplicateName() {
 		try {
 			LessonTemplateData inputData = JsonParser.jsonToBean("LessonTemplateTest/createTemplate_03.json",
 					LessonTemplateData.class);
+			System.out.println("Loggen in with Teacher 2 credentials for template duplicate test");
 			loginPageActions.loginAs("teacher", "two");
 			homePageActions.changeTab("lessons");
 			lessonsPageActions.openCreateLessonsPage();
@@ -59,15 +60,15 @@ public class LessonTemplatesTest extends SeleniumAbstractTest {
 			lessonsPageActions.fillTemplateCreateForm(inputData);
 			Assert.assertEquals(lessonsPageActions.isTemplateSaveButtonDisabled(), false, "template save button is disabled");
 			lessonsPageActions.saveTemplatedCreateForm();
-			lessonsPageActions.deleteTemplate(inputData.getTemplateName());
-			lessonsPageActions.deleteTemplate(inputData.getTemplateName());
+			//lessonsPageActions.deleteTemplate(inputData.getTemplateName());
+			//lessonsPageActions.deleteTemplate(inputData.getTemplateName());
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail("failed due to exception " + e.getMessage());
 		}
 	}
 
-	@Test
+	//@Test
 	public void createTemplate_blankFields() {
 		try {
 			LessonTemplateData inputData = JsonParser.jsonToBean("LessonTemplateTest/createTemplate_02.json",
@@ -84,7 +85,7 @@ public class LessonTemplatesTest extends SeleniumAbstractTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void createdTemplateVisibleByOtherTeacher() {
 		try {
 			LessonTemplateData inputData = JsonParser.jsonToBean("LessonTemplateTest/createTemplate_03.json",
@@ -123,7 +124,7 @@ public class LessonTemplatesTest extends SeleniumAbstractTest {
 			loginPageActions.loginAs("teacher", "one");
 			homePageActions.changeTab("lessons");
 			lessonsPageActions.openCreateLessonsPage();
-			lessonsPageActions.deleteTemplate(inputData.getTemplateName());
+			//lessonsPageActions.deleteTemplate(inputData.getTemplateName());
 
 		} catch (Exception e) {
 			e.printStackTrace();

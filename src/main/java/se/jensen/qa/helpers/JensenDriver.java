@@ -138,8 +138,9 @@ public class JensenDriver {
 
 	public WebElement findRowInJensenTable(String dataTitleName, String value) {
 		List<WebElement> list = this.waitAndFindElementsByCssSelector("div .table-wrap > ul > li:not(.-header)");
+		System.out.println(list);
 		return list.stream().filter(e -> {
-			WebElement columnName = this.findElementByCssSelector(e, "div[data-title-text='Namn']");
+			WebElement columnName = this.findElementByCssSelector(e, "div[data-title-text='" + dataTitleName + "']");
 			return value.equals(columnName.getText());
 		}).findFirst().orElse(null);
 	}
@@ -171,6 +172,7 @@ public class JensenDriver {
 
 	public void clickRowInJensenTable(String dataTitleName, String value) throws InterruptedException {
 		WebElement row = this.findRowInJensenTable(dataTitleName, value);
+		System.out.println(row);
 		if (row != null) {
 			row.click();
 		}

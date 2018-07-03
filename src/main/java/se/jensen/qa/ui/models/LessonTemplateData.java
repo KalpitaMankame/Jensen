@@ -7,6 +7,7 @@ public class LessonTemplateData {
 	private String course;
 	private String teacherInstructions;
 	private String studentInstructions;
+		
 
 	public String getShortDescription() {
 		return shortDescription;
@@ -40,5 +41,4 @@ public class LessonTemplateData {
 	}
 
 	
-
 }
