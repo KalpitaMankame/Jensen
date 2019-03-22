@@ -1,5 +1,6 @@
 package se.jensen.qa.helpers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -134,7 +135,7 @@ public class JensenDriver {
 		WebElement searchBox = this.findElementByCssSelector(parentDiv, "div.chosen-search input");
 		searchBox.sendKeys(searchInput);
 		searchBox.sendKeys(Keys.RETURN);
-	}
+ 	}
 
 	public WebElement findRowInJensenTable(String dataTitleName, String value) {
 		List<WebElement> list = this.waitAndFindElementsByCssSelector("div .table-wrap > ul > li:not(.-header)");
@@ -172,12 +173,21 @@ public class JensenDriver {
 
 	public void clickRowInJensenTable(String dataTitleName, String value) throws InterruptedException {
 		WebElement row = this.findRowInJensenTable(dataTitleName, value);
-		System.out.println(row);
-		if (row != null) {
+			if (row != null) {
 			row.click();
 		}
 	}
-
+	
+	public void writeGoogleDoc() {
+		driver.getCurrentUrl();
+		WebElement content = driver.findElement(By.className("kix-lineview"));
+		content.sendKeys("Sample Text");
+	}
+	
+	public void switchTabs() {
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(0));
+	}
 	public void deleteAllCookies() {
 		driver.manage().deleteAllCookies();
 	}

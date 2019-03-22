@@ -1,17 +1,17 @@
 [
 	{
-		"templateName": "AA Template 1 ${CURRENT_DATE_TIME}",
+		"templateName": "Template#2",
 		"typeDropdown": "Laboration",
 		"shortDescription": "This is a Short desscription for assignment",
-		"course": "Coachtid",
+		"course": "Religionskunskap 1",
 		"teacherInstructions": "This is an instruction for Teacher Instruction",
 		"studentInstructions": "This is an instruction for Student Instruction",
 		"assessmentAspect": "This is an instruction for Assessment Aspect",
-		"distributeCoursegroupdropdown": "-Test Coach group",
+		"distributeCoursegroupdropdown": "BW-Group-1-HighSchool-Kol",
 		"flexAssignmentStartPercent":0,
-		"flexAssignmentEndPercent":100
-		
-		
+		"flexAssignmentEndPercent":100,
+		"selectSourceGroup": "-Test Coach group",
+		"selectDestinationGroup": "Kalpita Test Group"
 	}
 	
 ]

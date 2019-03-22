@@ -18,7 +18,7 @@ public class AssignmentTemplatesTest extends SeleniumAbstractTest {
 		assignmentPageActions = new AssignmentPageActions(jensenDriver);
 	}
 
-//@Test
+@Test
 	//CREATE AND DISTRIBUTE REGULAR ASSIGNMENT
 	public void createAssignmentTemplatesTest() {
 		try {
@@ -37,21 +37,58 @@ public class AssignmentTemplatesTest extends SeleniumAbstractTest {
 				System.out.println("Data filled up in the assignment template");
 				Assert.assertEquals(assignmentPageActions.isTemplateSaveButtonDisabled(), false,
 						"template save button is disabled");
-				assignmentPageActions.saveTemplateCreateFormWithKlar();
+				assignmentPageActions.saveTemplateCreateForm();
 				System.out.println("Template is Created");
-				Assert.assertEquals(assignmentPageActions.isTemplateSaved(iData.getTemplateName()), true, "template is visible");
-				assignmentPageActions.openTemplate(iData.getTemplateName());
-				System.out.println("Template is opened to distribute an assignment");
+//				Assert.assertEquals(assignmentPageActions.isTemplateSaved(iData.getTemplateName()), true, "template is visible");
+//				//assignmentPageActions.openTemplate(iData.getTemplateName());
+//				System.out.println("Template is opened to distribute an assignment");
 				assignmentPageActions.distributeAssignment(iData);
-				System.out.println("Assignment is distributed");
-				assignmentPageActions.openAssignment(iData.getTemplateName());
-				System.out.println("Distributed assignment is opened by teacher");
-				homePageActions.logout();
-				loginPageActions.loginAs("student", "one");
-				System.out.println("Logged in with Student 1 credentials");
-				
+//				System.out.println("Assignment is distributed");
+//				assignmentPageActions.openAssignment(iData.getTemplateName());
+//				System.out.println("Distributed assignment is opened by teacher");
+//				homePageActions.logout();
+			}
+		}
+			catch (Exception e) {
+				e.printStackTrace();
+				Assert.fail("failed due to exception " + e.getMessage());
+			}
+			}
+	//@Test
+
+	//OPEN AND WORK ON THE DISTRIBUTED ASSIGNMENT
+		public void workWithAssignmentByStudent() {
+			try {
+				List<AssignmentTemplateData> inputDataList = JsonParser.jsonToBeanList(
+						"AssignmentTemplateTest/createAssignmentTemplate_01.json", AssignmentTemplateData[].class);
+//				loginPageActions.loginAs("student", "one");
+//				System.out.println("Logged in with Student 1 credentials");
+			for (AssignmentTemplateData iData : inputDataList) {
+//				homePageActions.changeTab("assignments");
+//				assignmentPageActions.openTemplate(iData.getTemplateName());
+//				System.out.println("Assignment opened by Student");
+//				assignmentPageActions.startAssignment();
+//				System.out.println("Paborja is clicked to start assignment");
+//				Thread.sleep(1000);
+//				assignmentPageActions.submitAssignment();
+//				Thread.sleep(1000);
+//				System.out.println("Assignment is submitted");
+//				assignmentPageActions.confirmSubmitAssignment();
+//				Thread.sleep(1000);
+//				System.out.println("Confirmed Submit assignment");
+//				homePageActions.logout();
+				//System.out.println("Logged out by Student");
+				loginPageActions.loginAs("teacher", "one");
+				System.out.println("Logged in with Teacher 1 credentials");
 				homePageActions.changeTab("assignments");
-				assignmentPageActions.openTemplate(iData.getTemplateName());
+				assignmentPageActions.openAssignment(iData.getTemplateName());
+				System.out.println("Assignment opened by Teacher");
+				Thread.sleep(1000);
+				//assignmentPageActions.submitAssignment();
+				//assignmentPageActions.confirmSubmitAssignment();
+	      		System.out.println("Confirmed Submit assignment");
+	      		assignmentPageActions.publishAssessment();
+	      		assignmentPageActions.confirmPublishAssessment();
 				}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -173,7 +210,7 @@ public class AssignmentTemplatesTest extends SeleniumAbstractTest {
 			Assert.fail("failed due to exception " + e.getMessage());
 		}
 	}
-	@Test
+	//@Test
 	public void startAssignment_student() {
 		try {
 			List<AssignmentTemplateData> inputDataList = JsonParser.jsonToBeanList(
@@ -185,6 +222,59 @@ public class AssignmentTemplatesTest extends SeleniumAbstractTest {
 			System.out.println(iData.getTemplateName());
 			assignmentPageActions.openTemplate(iData.getTemplateName());
 			System.out.println("Assignment opened by Student");
+			assignmentPageActions.startAssignment();
+			System.out.println("Paborja is clicked to start assignment");
+			Thread.sleep(1000);
+			assignmentPageActions.switchToPreviousTab();
+			//assignmentPageActions.closeCurrentTab();
+			//assignmentPageActions.writeInGoogleDoc();
+			//System.out.println("URL Received and text written");
+//			assignmentPageActions.submitAssignment();
+//			System.out.println("Assignment is submitted");
+//			assignmentPageActions.confirmSubmitAssignment();
+//			System.out.println("Confirmed Submit assignment");
+//			Thread.sleep(1000);
+//			homePageActions.logout();
+//			System.out.println("Logged out by Student");
+//			loginPageActions.loginAs("teacher", "one");
+//			System.out.println("Logged in with Teacher 1 credentials");
+//			homePageActions.changeTab("assignments");
+//			assignmentPageActions.openAssignment(iData.getTemplateName());
+//			System.out.println("Assignment opened by Teacher");
+//			assignmentPageActions.submitAssignment();
+//			System.out.println("Assignment is submitted");
+//			assignmentPageActions.confirmSubmitAssignment();
+//      		System.out.println("Confirmed Submit assignment");
+//      		assignmentPageActions.publishAssessment();
+//      		System.out.println("Assessment Published");
+//      		assignmentPageActions.confirmPublishAssessment();
+//      		System.out.println("Confirmed Assessment Published");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			Assert.fail("failed due to exception " + e.getMessage());
+		}
+	}
+	//@Test
+	public void copyCourse() {
+		try {
+			List<AssignmentTemplateData> inputDataList = JsonParser.jsonToBeanList(
+					"AssignmentTemplateTest/createAssignmentTemplate_01.json", AssignmentTemplateData[].class);
+			loginPageActions.loginAs("teacher", "one");
+			System.out.println("Logged in with Student 1 credentials");
+			for(AssignmentTemplateData iData : inputDataList) {
+				homePageActions.changeTab("courses");
+				System.out.println("Clicked on the 'Mina Kurser' tab from the left nav");
+				assignmentPageActions.openCopyCourse();
+				System.out.println("Clicked on Copy Course button");
+				assignmentPageActions.selectSourceGroup(iData);
+				System.out.println("Source group is selected");
+				assignmentPageActions.selectDestinationGroup(iData);
+				System.out.println("Destination group is selected");
+				assignmentPageActions.gotoStep2();
+				System.out.println("Clicked Next");
+				assignmentPageActions.copy();
+				System.out.println("Copied");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

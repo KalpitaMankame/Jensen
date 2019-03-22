@@ -15,7 +15,10 @@ public class AssignmentTemplateData {
 	private String distributeCoursegroupdropdown;
 	private String flexAssignmentStartPercent;
 	private String flexAssignmentEndPercent;
+	private String selectSourceGroup;
+	private String selectDestinationGroup;
 
+	
 	public String getShortDescription() {
 		return shortDescription;
 	}
@@ -94,5 +97,17 @@ public class AssignmentTemplateData {
 	}
 	public void setFlexAssignmentEndPercent(String flexAssignmentEndPercent) {
 		this.flexAssignmentEndPercent = flexAssignmentEndPercent;
+	}
+	public String getSelectSourceGroup() {
+		return selectSourceGroup;
+	}
+	public void setSelectSourceGroup(String selectSourceGroup) {
+		this.selectSourceGroup = selectSourceGroup;
+	}
+	public String getSelectDestinationGroup() {
+		return selectDestinationGroup;
+	}
+	public void setSelectDestinationGroup(String selectDestinationGroup) {
+		this.selectDestinationGroup = selectDestinationGroup;
 	}
 }
